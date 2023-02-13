@@ -2,7 +2,7 @@
 	{
 		"id": 4,
 		"serverId": 0,
-		"serverToken": "bex360",
+		"serverToken": "yildirimdev",
 		"userRoleTitle": "Tedarikci",
 		"userRoleToken": "token3",
 		"userTypeTitle": null,
@@ -59,7 +59,7 @@
 	{
 		"id": 3,
 		"serverId": 0,
-		"serverToken": "bex360",
+		"serverToken": "yildirimdev",
 		"userRoleTitle": "Tedarikci",
 		"userRoleToken": "token3",
 		"userTypeTitle": null,
@@ -116,7 +116,7 @@
 	{
 		"id": 2,
 		"serverId": 0,
-		"serverToken": "bex360",
+		"serverToken": "yildirimdev",
 		"userRoleTitle": "Admin",
 		"userRoleToken": "token1",
 		"userTypeTitle": null,
@@ -173,7 +173,7 @@
 	{
 		"id": 1,
 		"serverId": 0,
-		"serverToken": "bex360",
+		"serverToken": "yildirimdev",
 		"userRoleTitle": "SuperAdmin",
 		"userRoleToken": "token",
 		"userTypeTitle": null,

@@ -100,57 +100,6 @@ module.exports = {
 			    //! Data
 				const dbLimit = db.slice(bottomLimit, topLimit);
 				
-				for (var i = 0; i < dbLimit.length; i++) {
-					
-					//! Company - Update
-					if (dbLimit[i].companyToken) {
-						
-						const dbFind_companyArray = dbLimit[i].companyToken; //! Company
-					
-						for (let index = 0; index < dbFind_companyArray.length; index++) {
-							const element = dbFind_companyArray[index]; //! Search - CompanyToken
-							const dbFind_company = db_company.find(u => u.token == element); //! Search - Company
-							dbLimit[i].companyInformation[index] = dbFind_company || null; //! Data Search
-						}
-						
-					} //! Company - Update - END
-					
-					
-					//! CategoryToken - Update
-					if (dbLimit[i].categoryToken) {
-						
-						const dbFind_categoryArray = dbLimit[i].categoryToken; //! category
-						
-						for (let index = 0; index < dbFind_categoryArray.length; index++) {
-							const element = dbFind_categoryArray[index]; //! Search - category
-							const dbFind_db_category= db_category.find(u => u.token == element); //! Search - category
-							dbLimit[i].categoryInformation[index] = dbFind_db_category || null; //! Data Search
-						}
-						
-					} //! CategoryToken - Update - END
-					
-					
-					//! Company - Update
-					if (dbLimit[i].bankAccountToken) {
-						
-						const dbFind_bankAccountArray = dbLimit[i].bankAccountToken; //! bankAccount
-						
-						for (let index = 0; index < dbFind_bankAccountArray.length; index++) {
-							const element = dbFind_bankAccountArray[index]; //! Search - bankAccount
-							const dbFind_db_bankAccount = db_bankAccount.find(u => u.token == element); //! Search - Company
-							dbLimit[i].bankAccountInformation[index] = dbFind_db_bankAccount || null; //! Data Search
-						}
-						
-					} //! Company - Update - END
-					
-					
-					//! Role - Update
-					const dbFind_role = db_role.find(u => u.token == dbLimit[i].userRoleToken); //! Search - Company
-					dbLimit[i].userRoleTitle = dbFind_role?.userRoleTitle ? dbFind_role?.userRoleTitle : null;
-					//! Role - Update END
-					
-				}
-				
 			
 				//! Return Api   
 				ctx.params.title = "user.service -> All Data"

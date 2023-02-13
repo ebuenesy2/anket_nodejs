@@ -2,7 +2,7 @@
 	{
 		"id": 1675455770759,
 		"serverId": 0,
-		"serverToken": "bex360",
+		"serverToken": "yildirimdev",
 		"userRoleTitle": "Tedarikci",
 		"userRoleToken": "token3",
 		"userTypeTitle": null,
@@ -11,7 +11,7 @@
 			{
 				"id": 1675454308577,
 				"serverId": 0,
-				"serverToken": "bex360",
+				"serverToken": "yildirimdev",
 				"categoryInformation": [],
 				"categoryToken": [
 					"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY3NTQzMjI5ODQ3MCwic2VydmVySWQiOjAsInNlcnZlclRva2VuIjoiYmV4MzYwIn0.2VQ3i8WmNqjOtmNVxGyCy1KvSBISvPDjK8-jE3KCMdw"
@@ -65,7 +65,7 @@
 			{
 				"id": 1675432298470,
 				"serverId": 0,
-				"serverToken": "bex360",
+				"serverToken": "yildirimdev",
 				"categoryTitle": "Otomotiv & Yedek Parça",
 				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY3NTQzMjI5ODQ3MCwic2VydmVySWQiOjAsInNlcnZlclRva2VuIjoiYmV4MzYwIn0.2VQ3i8WmNqjOtmNVxGyCy1KvSBISvPDjK8-jE3KCMdw",
 				"created_at": "2023-02-03T16:51:38+03:00",
@@ -86,7 +86,7 @@
 			{
 				"id": 1675450250007,
 				"serverId": null,
-				"serverToken": "bex360",
+				"serverToken": "yildirimdev",
 				"bankId": null,
 				"bankTitle": null,
 				"bankToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY3NTQzNDcwNDA3OCwiYmFua1RpdGxlIjoiVMO8cmtpeWUgxLDFnyBCYW5rYXPEsSJ9.lRDp3T9aTtqJlcw7_dX2auEUc7UjptpC4AwezrtONiw",
@@ -154,7 +154,7 @@
 	{
 		"id": 1675455528087,
 		"serverId": 0,
-		"serverToken": "bex360",
+		"serverToken": "yildirimdev",
 		"userRoleTitle": "Tedarikci",
 		"userRoleToken": "token3",
 		"userTypeTitle": null,
@@ -163,12 +163,12 @@
 			{
 				"id": 1675453879471,
 				"serverId": 0,
-				"serverToken": "bex360",
+				"serverToken": "yildirimdev",
 				"categoryInformation": [
 					{
 						"id": 1675432348418,
 						"serverId": 0,
-						"serverToken": "bex360",
+						"serverToken": "yildirimdev",
 						"categoryTitle": "Tekstil & Tesettür Giyim",
 						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY3NTQzMjM0ODQxOCwic2VydmVySWQiOjAsInNlcnZlclRva2VuIjoiYmV4MzYwIn0.vTY30JO_c4XkwKTFY0v2Sz_isLxJx7Lga7u6V8ckRDM",
 						"created_at": "2023-02-03T16:52:28+03:00",
@@ -189,7 +189,7 @@
 					{
 						"id": 1675450037153,
 						"serverId": null,
-						"serverToken": "bex360",
+						"serverToken": "yildirimdev",
 						"bankId": 1675434950322,
 						"bankTitle": "Kuveyt Türk",
 						"bankToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY3NTQzNDk1MDMyMiwiYmFua1RpdGxlIjoiS3V2ZXl0IFTDvHJrIn0.SfdX2rOWic40Ne6E7sHhWZe884-kYD5p9uctFSSYHs0",
@@ -258,7 +258,7 @@
 			{
 				"id": 1675432348418,
 				"serverId": 0,
-				"serverToken": "bex360",
+				"serverToken": "yildirimdev",
 				"categoryTitle": "Tekstil & Tesettür Giyim",
 				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY3NTQzMjM0ODQxOCwic2VydmVySWQiOjAsInNlcnZlclRva2VuIjoiYmV4MzYwIn0.vTY30JO_c4XkwKTFY0v2Sz_isLxJx7Lga7u6V8ckRDM",
 				"created_at": "2023-02-03T16:52:28+03:00",
@@ -279,7 +279,7 @@
 			{
 				"id": 1675450037153,
 				"serverId": null,
-				"serverToken": "bex360",
+				"serverToken": "yildirimdev",
 				"bankId": 1675434950322,
 				"bankTitle": "Kuveyt Türk",
 				"bankToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY3NTQzNDk1MDMyMiwiYmFua1RpdGxlIjoiS3V2ZXl0IFTDvHJrIn0.SfdX2rOWic40Ne6E7sHhWZe884-kYD5p9uctFSSYHs0",
@@ -347,7 +347,7 @@
 	{
 		"id": 4,
 		"serverId": 0,
-		"serverToken": "bex360",
+		"serverToken": "yildirimdev",
 		"userRoleTitle": "Tedarikci",
 		"userRoleToken": "token3",
 		"userTypeTitle": null,
@@ -404,7 +404,7 @@
 	{
 		"id": 3,
 		"serverId": 0,
-		"serverToken": "bex360",
+		"serverToken": "yildirimdev",
 		"userRoleTitle": "Tedarikci",
 		"userRoleToken": "token3",
 		"userTypeTitle": null,
@@ -461,7 +461,7 @@
 	{
 		"id": 2,
 		"serverId": 0,
-		"serverToken": "bex360",
+		"serverToken": "yildirimdev",
 		"userRoleTitle": "Admin",
 		"userRoleToken": "token1",
 		"userTypeTitle": null,
@@ -518,7 +518,7 @@
 	{
 		"id": 1,
 		"serverId": 0,
-		"serverToken": "bex360",
+		"serverToken": "yildirimdev",
 		"userRoleTitle": "SuperAdmin",
 		"userRoleToken": "token",
 		"userTypeTitle": null,
@@ -577,7 +577,7 @@
 	{
 		"id": 1675456119432,
 		"serverId": 0,
-		"serverToken": "bex360",
+		"serverToken": "yildirimdev",
 		"userRoleTitle": null,
 		"userRoleToken": "token3",
 		"userTypeTitle": null,
