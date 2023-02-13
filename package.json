@@ -1,0 +1,78 @@
+{
+  "name": "nodejs-yildirimdev",
+  "version": "1.0.0",
+  "description": "My Moleculer-based microservices project",
+  "scripts": {
+    "dev": "moleculer-runner --repl --hot services/**/*.service.js",
+    "start": "npm run dev",
+    "cli": "moleculer connect NATS",
+    "ci": "jest --watch",
+    "test": "jest --coverage",
+    "lint": "eslint services",
+    "dc:up": "docker-compose up --build -d",
+    "dc:logs": "docker-compose logs -f",
+    "dc:down": "docker-compose down"
+  },
+  "keywords": [
+    "microservices",
+    "moleculer"
+  ],
+  "author": "",
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "moleculer-repl": "^0.6.4"
+  },
+  "dependencies": {
+    "@fastify/mysql": "^4.0.0",
+    "axios": "^1.1.3",
+    "dayjs": "^1.10.6",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "fastify": "^3.18.1",
+    "fastify-cookie": "^5.7.0",
+    "fastify-cors": "^6.0.2",
+    "fastify-formbody": "^5.0.0",
+    "fastify-helmet": "^5.3.2",
+    "fastify-multipart": "^5.0.2",
+    "fastify-plugin": "^3.0.0",
+    "fastify-session": "^5.2.1",
+    "fastify-static": "^4.4.2",
+    "fastify-websocket": "^4.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "jwt-encode": "^1.0.1",
+    "knex": "^2.3.0",
+    "mkdirp": "^1.0.4",
+    "moleculer": "^0.14.16",
+    "moleculer-db": "^0.8.4",
+    "moleculer-db-adapter-mongo": "^0.4.12",
+    "moleculer-web": "^0.9.1",
+    "mongoose": "^5.13.2",
+    "mysql": "^2.18.1",
+    "nats": "^1.4.12",
+    "nodemailer": "^6.8.0",
+    "nodemon": "^2.0.14",
+    "sharp": "^0.29.2",
+    "xml2js": "^0.4.23",
+    "yarn": "^1.22.19"
+  },
+  "engines": {
+    "node": ">=0.10.22",
+    "npm": ">=1.3.14"
+  },
+  "jest": {
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "rootDir": "./services",
+    "roots": [
+      "../test"
+    ]
+  },
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "license": "ISC"
+}

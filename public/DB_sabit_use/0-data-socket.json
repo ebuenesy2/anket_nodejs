@@ -1,0 +1,44 @@
+[
+	{
+		"dataType": "Connect",
+		"dataTypeTitle": "Connected",
+		"dataTypeDescriptionTR": "Bir Kullanıcı Bağlandı",
+		"dataTypeDescriptionEN": "",
+		"dataStatus": "success"
+	},
+	{
+		"dataType": "Connect",
+		"dataTypeTitle": "disConnect",
+		"dataTypeDescriptionTR": "Bir Kullanıcı Çıkış Yaptı",
+		"dataTypeDescriptionEN": "",
+		"dataStatus": "error"
+	},
+	{
+		"dataType": "Time",
+		"dataTypeTitle": "time_add_successful",
+		"dataTypeDescriptionTR": "Zaman Görüntüleme Başladı",
+		"dataTypeDescriptionEN": "",
+		"dataStatus": "success"
+	},
+	{
+		"dataType": "page",
+		"dataTypeTitle": "pageRefresh",
+		"dataTypeDescriptionTR": " [pageTable] [pageToken]  Sayfa Yenile",
+		"dataTypeDescriptionEN": "",
+		"dataStatus": "success"
+	},
+	{
+		"dataType": "mesaj",
+		"dataTypeTitle": "mesaj_send_successful",
+		"dataTypeDescriptionTR": "Mesaj Gönderme Başarılı",
+		"dataTypeDescriptionEN": "",
+		"dataStatus": "success"
+	},
+	{
+		"dataType": "Like",
+		"dataTypeTitle": "liked",
+		"dataTypeDescriptionTR": "Gönderi Beğenildi",
+		"dataTypeDescriptionEN": "",
+		"dataStatus": "success"
+	}
+]

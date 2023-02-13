@@ -1,0 +1,17 @@
+[
+	{
+		"order_id": "irakdan gelecek apide var",
+		"order_qrcode": "code",
+		"products_count": 2,
+		"products": [
+			{
+				"product_token": "token1",
+				"product_piece": "10"
+			},
+			{
+				"product_token": "token1",
+				"product_piece": ""
+			}
+		]
+	}
+]
