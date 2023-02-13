@@ -435,33 +435,7 @@ module.exports = {
 			//! If Data Is Available
 			if (dbFilter.length > 0) {   	   
 				
-				   for (var i = 0; i < dbFilter.length; i++) {
 				
-					//! Company - Update
-					if (dbFilter[i].companyToken) {
-						
-						const dbFind_company = db_company.find(u => u.token == dbFilter[i].companyToken); //! Search - Company
-						db[i].companyId = dbFind_company?.id ? dbFind_company?.id : null;
-						db[i].companyTitle = dbFind_company?.titleofcompany ? dbFind_company?.titleofcompany : null;
-						db[i].categoryToken = dbFind_company?.categoryToken ? dbFind_company?.categoryToken : null;
-					}
-					
-					
-					//! Company - Update - END
-					
-					//! categoryTitle - Update
-					const dbFind_categoryTitle = db_category.find(u => u.token == dbFilter[i].categoryToken); //! Search - Company
-					db[i].categoryTitle = dbFind_categoryTitle?.categoryTitle ? dbFind_categoryTitle?.categoryTitle : null;
-					//! categoryTitle - Update END
-					
-					
-					//! Role - Update
-					const dbFind_role = db_role.find(u => u.token == dbFilter[i].userRoleToken); //! Search - Company
-					db[i].userRoleTitle = dbFind_role?.userRoleTitle ? dbFind_role?.userRoleTitle : null;
-					//! Role - Update END
-				}
-
-                
 				//! Return Api   
 				ctx.params.title = "user.service -> Data Search"
 				ctx.params.table = "user.json"
@@ -1571,7 +1545,6 @@ module.exports = {
 			//! Password - Md5
 			const passwordx = ctx.params.password
 			const md5_create = md5(passwordx);
-			
 
 			//! Search
 			const dbFind_email = db.filter(u => u.email == ctx.params.email);
@@ -1652,10 +1625,14 @@ module.exports = {
 			return ctx.params
 		},
 		async loginOnlineUsername(ctx) {
+			
+			//! Password - Md5
+			const passwordx = ctx.params.password
+			const md5_create = md5(passwordx);
 
 			//! Search
 			const dbFind_username = db.filter(u => u.username == ctx.params.username);
-			const dbFind = db.filter(u => u.username == ctx.params.username && u.password == ctx.params.password && u.serverToken == ctx.params.serverToken );
+			const dbFind = db.filter(u => u.username == ctx.params.username && u.password == md5_create && u.serverToken == ctx.params.serverToken );
 
 			// Giriş Başarılı ise
 			if (dbFind.length > 0) {
@@ -1736,13 +1713,7 @@ module.exports = {
                 let _durationMs = new Date() - new Date(onlineLastLogin_At) //! Time Difference
 				_totalDurationMs =Number(_totalDurationMs) + Number(_durationMs);  //! Toplam Time END
 
-				//! -----------  User UPDATE ----------------------------- 	
-				let convert_time = await ctx.call('time.convert_time', {
-					fromValue:_totalDurationMs,
-					formType:"ms",
-					toType:"ms"
-				})		
-				//! ----------- End User UPDATE ----------------------------		
+					
 
 		
 				//! -----------  User UPDATE ----------------------------- 	
@@ -1754,7 +1725,7 @@ module.exports = {
 					onlineLastLoginout_At: dayjs().format(),
 					lastDurationMs:_durationMs,
 					totalDurationMs : _totalDurationMs,
-					totalDurationTime: convert_time.difftimeString
+					totalDurationTime: "totalDurationTime"
 				})		
 				//! ----------- End User UPDATE ----------------------------
 				
@@ -1807,22 +1778,6 @@ module.exports = {
 			if (dbFind) {     
 
 							
-				// //! ----------- Log ----------------------------- 	
-				// let logs_add = await ctx.call('logs.add', {
-				// 	table: "user",
-				// 	title: "user_view_successful",
-				// 	description: "Kullanıcı  Görüntüleme Başarılı",
-				// 	logStatus: "success",
-				// 	fromToken: dbFind["token"],
-				// 	created_byToken: ctx.params.readed_byToken
-				// })
-
-				// if (logs_add.status == "1") { console.log('\u001b[' + 32 + 'm' + '[User] [Logs] [View] Bildirim Eklendi' + '\u001b[0m'); }
-				// if (logs_add.status == "0") { console.log('\u001b[' + 31 + 'm' + '[User] [Logs] [View] Bildirim Eklenemedi' + '\u001b[0m'); }
-
-				// //! ----------- Log END -----------------------------
-
-
 				
 				//! Return Api	
 				ctx.params.title = "user.service -> Veri Görüntüleme"
