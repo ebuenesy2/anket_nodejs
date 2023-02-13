@@ -205,7 +205,7 @@ module.exports = {
 		async find_token(ctx) {
 
 			//! Search
-			const dbFind = db.find(u => u.token == ctx.params.token);	
+			const dbFind = db.find(u => u.token == ctx.params.token && u.serverToken == ctx.params.serverToken );
 
 			//! If Data Is Available
 			if (dbFind) {	               

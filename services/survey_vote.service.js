@@ -205,7 +205,7 @@ module.exports = {
 		async find_token(ctx) {
 
 			//! Search
-			const dbFind = db.find(u => u.token == ctx.params.token);	
+			const dbFind = db.find(u => u.token == ctx.params.token && u.serverToken == ctx.params.serverToken );
 
 			//! If Data Is Available
 			if (dbFind) {	               
@@ -370,8 +370,8 @@ module.exports = {
 
 				let TokenInfo={				
 					id: TokenId,	
-					question: ctx.params.question,
-					answers: ctx.params.answers
+					voterToken: ctx.params.voterToken,
+					surveyToken: ctx.params.surveyToken
 				}
 				
 				const secret = 'secret';
@@ -384,8 +384,9 @@ module.exports = {
 					id:TokenId,		
 					serverId: ctx.params.serverId,
 					serverToken: ctx.params.serverToken,
-					question: ctx.params.question,
-					answers: ctx.params.answers,
+					voterToken: ctx.params.voterToken,
+					surveyToken: ctx.params.surveyToken,
+					surveyAnswersId: ctx.params.surveyAnswersId,
 					token:jwt,				
 					created_at: dayjs().format(),
 					created_byToken: ctx.params.created_byToken,
@@ -443,9 +444,12 @@ module.exports = {
 
 			//! Delete
 		    delete ctx.params.serverId 
-		    delete ctx.params.serverToken 
-		    delete ctx.params.question 
-		    delete ctx.params.answers 
+            delete ctx.params.serverToken 
+            
+		    delete ctx.params.voterToken 
+		    delete ctx.params.surveyToken 
+		    delete ctx.params.surveyAnswersId 
+		    delete ctx.params.created_byToken 
               
 			return ctx.params
 		},
@@ -512,8 +516,11 @@ module.exports = {
 			delete ctx.params.updated_byToken 
 			delete ctx.params.token
 			delete ctx.params.serverToken
-			delete ctx.params.question 
-		    delete ctx.params.answers
+			
+            delete ctx.params.voterToken 
+		    delete ctx.params.surveyToken 
+		    delete ctx.params.surveyAnswersId 
+		    delete ctx.params.created_byToken 
 
 			return ctx.params
 
