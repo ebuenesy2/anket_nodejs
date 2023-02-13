@@ -44,6 +44,7 @@
     "jwt-decode": "^3.1.2",
     "jwt-encode": "^1.0.1",
     "knex": "^2.3.0",
+    "md5": "^2.3.0",
     "mkdirp": "^1.0.4",
     "moleculer": "^0.14.16",
     "moleculer-db": "^0.8.4",

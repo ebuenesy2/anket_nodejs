@@ -4,6 +4,7 @@ const fs = require("fs"); //! File
 const sign = require('jwt-encode'); //! Token
 const jwt_decode = require('jwt-decode'); //! Token
 const db = require('../public/DB/user.json'); //! Json
+var md5 = require('md5'); //! Md5
 
 
 module.exports = {
@@ -744,7 +745,7 @@ module.exports = {
 
 							let TokenInfo={				
 								id: TokenId,
-								role:ctx.params.userRoleId,	
+								email:ctx.params.email,	
 								name: ctx.params.name,
 								surname: ctx.params.surname
 							}
@@ -757,8 +758,10 @@ module.exports = {
 						    //! Token 
 						    userToken = jwt 
 							
-							
-							ctx.params.TokenInfo = TokenInfo
+						
+						   //! Encrypts the password with md5
+						   const password = md5(ctx.params.password); //! MD5
+						
 				
 						
 							//! Data to add
@@ -786,6 +789,7 @@ module.exports = {
 								coverImageUploadUrl: null,
 								username: ctx.params.username ? ctx.params.username : null,
 								email: ctx.params.email,
+								password: password,	
 								phone: ctx.params.phone,
 								gsm: ctx.params.gsm ? ctx.params.gsm : null,
 								address: ctx.params.address ? ctx.params.address : null,
@@ -798,7 +802,6 @@ module.exports = {
 								country: ctx.params.country ? ctx.params.country : null,
 								city: ctx.params.city ? ctx.params.city : null,
 								gender: ctx.params.gender ? ctx.params.gender : null,
-								password: ctx.params.password,								
 								adminCheck: 0,
 								confirmation_code : "",
 								token:jwt,
@@ -818,60 +821,60 @@ module.exports = {
 								isDeleted:false,
 								deleted_at:null,
 								deleted_byToken:null
-							}				
-
-							// //Save Data
-							// db.push(willSaveData)
-
-							// //Writing Data into Json -> db
-							// fs.writeFile('./public/DB/user.json', JSON.stringify(db), err => {
-
-							// 	// If there is an error
-							// 	if (err) {
-							// 		console.log('\u001b[' + 31 + 'm' + '[User] [Json] [Add] Failed to Save Json Data [ user.json ] ' + '\u001b[0m');	
-							// 		console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
-							// 	}							
-
-							// 	//! Console Writing
-							// 	console.log('\u001b[' + 32 + 'm' + '[User] [Json] [Add] Json Data Saved [ user.json ] ' + '\u001b[0m');								
-								
-							// });			
-
-							// //! Return Api   
-							// status = 1	
-						    // message = "Data Added"
-						 
-						    // if (process.env.MailSend_UserRegisterConfirmationStatus == 1) {
-								
-							// 	let site_url = process.env.SiteUrl + "/user_admin_check_success?confirmation_code=";
-								
-							// 	var messageHtml = '';
-							
-							// 	messageHtml += '<div style="display: flex;">';
+						}		
 						
-							// 	messageHtml += '<div style="font-family: Tahoma;position: relative; border: 1px solid #e6eaee; border-radius: 5px; background-color: #eff3f6; width: 100%; margin-left: auto; margin-right: auto; padding: 25px; font-size: small;">';
-							// 	messageHtml += '<div style="width: 100%;" >';
-							// 	messageHtml += '<img src="'+ process.env.Default_Site_Logo+'" alt="" srcset="">';
-							// 	messageHtml += '</div>';
-							// 	messageHtml += '<h2>Merhaba '+ctx.params.name+" "+ctx.params.surname+'</h2> ';
-							// 	messageHtml += '<p>Bex360 Tedarikçi Sistemine kayıt olduğunuz için çok teşekkür ederiz.</p>';
-							// 	messageHtml += '<p>Hesabınızı onaylamak için</p>';
-							// 	messageHtml += '<a href="' + site_url + userToken + '">Lütfen Tıklayınız</a>';
-							// 	messageHtml += '</div>';
+							//Save Data
+							db.push(willSaveData)
 
-							// 	messageHtml += '</div>';
+							//Writing Data into Json -> db
+							fs.writeFile('./public/DB/user.json', JSON.stringify(db), err => {
+
+								// If there is an error
+								if (err) {
+									console.log('\u001b[' + 31 + 'm' + '[User] [Json] [Add] Failed to Save Json Data [ user.json ] ' + '\u001b[0m');	
+									console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
+								}							
+
+								//! Console Writing
+								console.log('\u001b[' + 32 + 'm' + '[User] [Json] [Add] Json Data Saved [ user.json ] ' + '\u001b[0m');								
+								
+							});			
+
+							//! Return Api   
+							status = 1	
+						    message = "Data Added"
+						 
+						    if (process.env.MailSend_UserRegisterConfirmationStatus == 1) {
+								
+								let site_url = process.env.SiteUrl + "/user_admin_check_success?confirmation_code=";
+								
+								var messageHtml = '';
+							
+								messageHtml += '<div style="display: flex;">';
+						
+								messageHtml += '<div style="font-family: Tahoma;position: relative; border: 1px solid #e6eaee; border-radius: 5px; background-color: #eff3f6; width: 100%; margin-left: auto; margin-right: auto; padding: 25px; font-size: small;">';
+								messageHtml += '<div style="width: 100%;" >';
+								messageHtml += '<img src="'+ process.env.Default_Site_Logo+'" alt="" srcset="">';
+								messageHtml += '</div>';
+								messageHtml += '<h2>Merhaba '+ctx.params.name+" "+ctx.params.surname+'</h2> ';
+								messageHtml += '<p>Bex360 Tedarikçi Sistemine kayıt olduğunuz için çok teşekkür ederiz.</p>';
+								messageHtml += '<p>Hesabınızı onaylamak için</p>';
+								messageHtml += '<a href="' + site_url + userToken + '">Lütfen Tıklayınız</a>';
+								messageHtml += '</div>';
+
+								messageHtml += '</div>';
 								
 							
-							// 	//! -----------  Mail Send Html ----------------------------- 	
-							// 	let mail_send = await ctx.call('mail.sendHtml', {
-							// 		toEmail: ctx.params.email,
-							// 		subject: "Tebrikler Başarılı Kayıt Oldunuz.",
-							// 		html: messageHtml
-							// 	})
-							// 	//! -----------  Mail Send Html ----------------------------- 
+								//! -----------  Mail Send Html ----------------------------- 	
+								let mail_send = await ctx.call('mail.sendHtml', {
+									toEmail: ctx.params.email,
+									subject: "Tebrikler Başarılı Kayıt Oldunuz.",
+									html: messageHtml
+								})
+								//! -----------  Mail Send Html ----------------------------- 
 								
 								
-							// }
+							}
 								
 					}
 
@@ -909,8 +912,11 @@ module.exports = {
 			//! Return Delete				
 			delete ctx.params.serverId
 			delete ctx.params.serverToken
+			
 			delete ctx.params.userRoleId
+			delete ctx.params.userRoleToken
 			delete ctx.params.userTypeId
+			delete ctx.params.userTypeToken
 
 			delete ctx.params.companyToken
 			delete ctx.params.categoryToken
