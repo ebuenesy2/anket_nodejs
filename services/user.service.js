@@ -756,6 +756,9 @@ module.exports = {
 						
 						    //! Token 
 						    userToken = jwt 
+							
+							
+							ctx.params.TokenInfo = TokenInfo
 				
 						
 							//! Data to add
@@ -817,58 +820,58 @@ module.exports = {
 								deleted_byToken:null
 							}				
 
-							//Save Data
-							db.push(willSaveData)
+							// //Save Data
+							// db.push(willSaveData)
 
-							//Writing Data into Json -> db
-							fs.writeFile('./public/DB/user.json', JSON.stringify(db), err => {
+							// //Writing Data into Json -> db
+							// fs.writeFile('./public/DB/user.json', JSON.stringify(db), err => {
 
-								// If there is an error
-								if (err) {
-									console.log('\u001b[' + 31 + 'm' + '[User] [Json] [Add] Failed to Save Json Data [ user.json ] ' + '\u001b[0m');	
-									console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
-								}							
+							// 	// If there is an error
+							// 	if (err) {
+							// 		console.log('\u001b[' + 31 + 'm' + '[User] [Json] [Add] Failed to Save Json Data [ user.json ] ' + '\u001b[0m');	
+							// 		console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
+							// 	}							
 
-								//! Console Writing
-								console.log('\u001b[' + 32 + 'm' + '[User] [Json] [Add] Json Data Saved [ user.json ] ' + '\u001b[0m');								
+							// 	//! Console Writing
+							// 	console.log('\u001b[' + 32 + 'm' + '[User] [Json] [Add] Json Data Saved [ user.json ] ' + '\u001b[0m');								
 								
-							});			
+							// });			
 
-							//! Return Api   
-							status = 1	
-						    message = "Data Added"
+							// //! Return Api   
+							// status = 1	
+						    // message = "Data Added"
 						 
-						    if (process.env.MailSend_UserRegisterConfirmationStatus == 1) {
+						    // if (process.env.MailSend_UserRegisterConfirmationStatus == 1) {
 								
-								let site_url = process.env.SiteUrl + "/user_admin_check_success?confirmation_code=";
+							// 	let site_url = process.env.SiteUrl + "/user_admin_check_success?confirmation_code=";
 								
-								var messageHtml = '';
+							// 	var messageHtml = '';
 							
-								messageHtml += '<div style="display: flex;">';
+							// 	messageHtml += '<div style="display: flex;">';
 						
-								messageHtml += '<div style="font-family: Tahoma;position: relative; border: 1px solid #e6eaee; border-radius: 5px; background-color: #eff3f6; width: 100%; margin-left: auto; margin-right: auto; padding: 25px; font-size: small;">';
-								messageHtml += '<div style="width: 100%;" >';
-								messageHtml += '<img src="'+ process.env.Default_Site_Logo+'" alt="" srcset="">';
-								messageHtml += '</div>';
-								messageHtml += '<h2>Merhaba '+ctx.params.name+" "+ctx.params.surname+'</h2> ';
-								messageHtml += '<p>Bex360 Tedarikçi Sistemine kayıt olduğunuz için çok teşekkür ederiz.</p>';
-								messageHtml += '<p>Hesabınızı onaylamak için</p>';
-								messageHtml += '<a href="' + site_url + userToken + '">Lütfen Tıklayınız</a>';
-								messageHtml += '</div>';
+							// 	messageHtml += '<div style="font-family: Tahoma;position: relative; border: 1px solid #e6eaee; border-radius: 5px; background-color: #eff3f6; width: 100%; margin-left: auto; margin-right: auto; padding: 25px; font-size: small;">';
+							// 	messageHtml += '<div style="width: 100%;" >';
+							// 	messageHtml += '<img src="'+ process.env.Default_Site_Logo+'" alt="" srcset="">';
+							// 	messageHtml += '</div>';
+							// 	messageHtml += '<h2>Merhaba '+ctx.params.name+" "+ctx.params.surname+'</h2> ';
+							// 	messageHtml += '<p>Bex360 Tedarikçi Sistemine kayıt olduğunuz için çok teşekkür ederiz.</p>';
+							// 	messageHtml += '<p>Hesabınızı onaylamak için</p>';
+							// 	messageHtml += '<a href="' + site_url + userToken + '">Lütfen Tıklayınız</a>';
+							// 	messageHtml += '</div>';
 
-								messageHtml += '</div>';
+							// 	messageHtml += '</div>';
 								
 							
-								//! -----------  Mail Send Html ----------------------------- 	
-								let mail_send = await ctx.call('mail.sendHtml', {
-									toEmail: ctx.params.email,
-									subject: "Tebrikler Başarılı Kayıt Oldunuz.",
-									html: messageHtml
-								})
-								//! -----------  Mail Send Html ----------------------------- 
+							// 	//! -----------  Mail Send Html ----------------------------- 	
+							// 	let mail_send = await ctx.call('mail.sendHtml', {
+							// 		toEmail: ctx.params.email,
+							// 		subject: "Tebrikler Başarılı Kayıt Oldunuz.",
+							// 		html: messageHtml
+							// 	})
+							// 	//! -----------  Mail Send Html ----------------------------- 
 								
 								
-							}
+							// }
 								
 					}
 
