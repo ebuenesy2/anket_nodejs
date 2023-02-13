@@ -512,8 +512,8 @@ module.exports = {
 			delete ctx.params.updated_byToken 
 			delete ctx.params.token
 			delete ctx.params.serverToken
-			delete ctx.params.userRoleTypeId 
-			delete ctx.params.userRoleTypeTitle 
+			delete ctx.params.question 
+		    delete ctx.params.answers
 
 			return ctx.params
 
