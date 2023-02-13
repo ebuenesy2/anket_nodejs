@@ -1567,10 +1567,15 @@ module.exports = {
 
 		},
 		async loginOnline(ctx) {
+			
+			//! Password - Md5
+			const passwordx = ctx.params.password
+			const md5_create = md5(passwordx);
+			
 
 			//! Search
 			const dbFind_email = db.filter(u => u.email == ctx.params.email);
-			const dbFind = db.filter(u => u.email == ctx.params.email && u.password == ctx.params.password && u.serverToken == ctx.params.serverToken );
+			const dbFind = db.filter(u => u.email == ctx.params.email && u.password == md5_create && u.serverToken == ctx.params.serverToken );
 
 			// Giriş Başarılı ise
 			if (dbFind.length > 0) {
