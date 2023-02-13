@@ -270,32 +270,31 @@ module.exports = {
 
 			//!---------------- User END ----------------------------------------------------------------------------------------------
 
-
 			
-			//!------------- Status  --------------------------------------------------------------------------------------------------
+			//!------------- survey  --------------------------------------------------------------------------------------------------
 
-			fastify.get('/api/status/info', async (req, res) => this.broker.call("status.info")) //! İnfo
-			fastify.post('/api/status/post', async (req, res) => this.broker.call("status.post", { ...req.body })) //! POST
-			fastify.get('/api/status/html', async (req, res) => this.broker.call("status.html")) //! Html
-			fastify.get('/api/status/all', async (req, res) => this.broker.call("status.all")) //! All
-			fastify.get('/api/status/all/params', async (req, res) => this.broker.call("status.all_params",{...req.query})) //! All - Params ?id=11
+			fastify.get('/api/survey/info', async (req, res) => this.broker.call("survey.info")) //! İnfo
+			fastify.post('/api/survey/post', async (req, res) => this.broker.call("survey.post", { ...req.body })) //! POST
+			fastify.get('/api/survey/html', async (req, res) => this.broker.call("survey.html")) //! Html
+			fastify.get('/api/survey/all', async (req, res) => this.broker.call("survey.all")) //! All
+			fastify.get('/api/survey/all/params', async (req, res) => this.broker.call("survey.all_params",{...req.query})) //! All - Params ?id=11
 
-			fastify.get('/api/status/:id', async (req, res) => this.broker.call("status.find", { id: req.params.id })) //! Search	
-			fastify.post('/api/status/find_post', async (req, res) => this.broker.call("status.find_post", { ...req.body })) //!  Search-Post
-			fastify.post('/api/status/find_token', async (req, res) => this.broker.call("status.find_token", { ...req.body })) //!  Search-Token	
-			fastify.post('/api/status/find_user', async (req, res) => this.broker.call("status.find_user", { ...req.body })) //!  Search-UserToken
-			fastify.post('/api/status/find_table', async (req, res) => this.broker.call("status.find_table", { ...req.body })) //!  Search-Table
+			fastify.get('/api/survey/:id', async (req, res) => this.broker.call("survey.find", { id: req.params.id })) //! Search	
+			fastify.post('/api/survey/find_post', async (req, res) => this.broker.call("survey.find_post", { ...req.body })) //!  Search-Post
+			fastify.post('/api/survey/find_token', async (req, res) => this.broker.call("survey.find_token", { ...req.body })) //!  Search-Token	
+			fastify.post('/api/survey/find_user', async (req, res) => this.broker.call("survey.find_user", { ...req.body })) //!  Search-UserToken
+			fastify.post('/api/survey/find_table', async (req, res) => this.broker.call("survey.find_table", { ...req.body })) //!  Search-Table
 
-			fastify.post('/api/status/find_serverToken', async (req, res) => this.broker.call("status.find_serverToken", { ...req.body })) //! Search - FromServerToken	
-			fastify.post('/api/status/find_serverId', async (req, res) => this.broker.call("status.find_serverId", { ...req.body })) //! Search - FromServerId
+			fastify.post('/api/survey/find_serverToken', async (req, res) => this.broker.call("survey.find_serverToken", { ...req.body })) //! Search - FromServerToken	
+			fastify.post('/api/survey/find_serverId', async (req, res) => this.broker.call("survey.find_serverId", { ...req.body })) //! Search - FromServerId
 
-			fastify.post('/api/status/add', async (req, res) => this.broker.call("status.add", { ...req.body })) //! CREATE		
-			fastify.post('/api/status/update', async (req, res) => this.broker.call("status.update", { ...req.body })) //! UPDATE
-			fastify.post('/api/status/updated_delete/:id', async (req, res) => this.broker.call("status.updated_delete", { id: req.params.id, ...req.body })) //! UPDATE DELETE
-			fastify.post('/api/status/delete/:id', async (req, res) => this.broker.call("status.delete", { id: req.params.id, ...req.body })) //! DELETE
-			fastify.post('/api/status/delete_update/:id', async (req, res) => this.broker.call("status.delete_update", { id: req.params.id, ...req.body })) //! DELETED Update
+			fastify.post('/api/survey/add', async (req, res) => this.broker.call("survey.add", { ...req.body })) //! CREATE		
+			fastify.post('/api/survey/update', async (req, res) => this.broker.call("survey.update", { ...req.body })) //! UPDATE
+			fastify.post('/api/survey/updated_delete/:id', async (req, res) => this.broker.call("survey.updated_delete", { id: req.params.id, ...req.body })) //! UPDATE DELETE
+			fastify.post('/api/survey/delete/:id', async (req, res) => this.broker.call("survey.delete", { id: req.params.id, ...req.body })) //! DELETE
+			fastify.post('/api/survey/delete_update/:id', async (req, res) => this.broker.call("survey.delete_update", { id: req.params.id, ...req.body })) //! DELETED Update
 
-			//!---------------- Status END ----------------------------------------------------------------------------------------------
+			//!---------------- survey END ----------------------------------------------------------------------------------------------
 
 			
             

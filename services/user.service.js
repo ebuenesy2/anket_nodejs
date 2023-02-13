@@ -75,7 +75,7 @@ module.exports = {
 
 				//! Console Writing
 				console.log('\u001b[' + 31 + 'm' + '[User] [All] All Data Could Not Read  [ /api/user/all ] ' + '\u001b[0m');
-				console.log('\u001b[' + 31 + 'm' + error + '\u001b[0m');
+				console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 			
 			}
 
@@ -122,7 +122,7 @@ module.exports = {
 
 				//! Console Writing
 				console.log('\u001b[' + 31 + 'm' + '[user] [All] All Data Could Not Read  [ /api/user/all/params ] ' + '\u001b[0m');
-				console.log('\u001b[' + 31 + 'm' + error + '\u001b[0m');
+				console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 			
 			}
 			
@@ -826,7 +826,7 @@ module.exports = {
 								// If there is an error
 								if (err) {
 									console.log('\u001b[' + 31 + 'm' + '[User] [Json] [Add] Failed to Save Json Data [ user.json ] ' + '\u001b[0m');	
-									console.log('\u001b[' + 31 + 'm' + error + '\u001b[0m');
+									console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 								}							
 
 								//! Console Writing
@@ -898,7 +898,7 @@ module.exports = {
 
 				//! Console Writing
 				console.log('\u001b[' + 31 + 'm' + '[User] [Add] Kullanıcı Failed to Add Data [ /api/user/add ] ' + '\u001b[0m');
-				console.log('\u001b[' + 31 + 'm' + error + '\u001b[0m');
+				console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 
 			}
 
@@ -1199,7 +1199,7 @@ module.exports = {
 					// If there is an error
 					if (err) {
 						console.log('\u001b[' + 31 + 'm' + '[User] [Json] [Update] Failed to Save Json Data [ user.json ] ' + '\u001b[0m');	
-						console.log('\u001b[' + 31 + 'm' + error + '\u001b[0m');
+						console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 					}							
 
 					//! Console Writing
@@ -1297,7 +1297,7 @@ module.exports = {
 					// If there is an error
 					if (err) {
 						console.log('\u001b[' + 31 + 'm' + '[User] [Json] [Update] Failed to Save Json Data [ user.json ] ' + '\u001b[0m');	
-						console.log('\u001b[' + 31 + 'm' + error + '\u001b[0m');
+						console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 					}							
 
 					//! Console Writing
@@ -1369,7 +1369,7 @@ module.exports = {
 					// If there is an error
 					if (err) {
 						console.log('\u001b[' + 31 + 'm' + '[User] [Json] [Update] Failed to Save Json Data [ user.json ] ' + '\u001b[0m');	
-						console.log('\u001b[' + 31 + 'm' + error + '\u001b[0m');
+						console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 					}							
 
 					//! Console Writing
@@ -1433,7 +1433,7 @@ module.exports = {
 					// If there is an error
 					if (err) {
 						console.log('\u001b[' + 31 + 'm' + '[User] [Json] [Delete] Failed to Save Json Data [ user.json ] ' + '\u001b[0m');	
-						console.log('\u001b[' + 31 + 'm' + error + '\u001b[0m');
+						console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 					}							
 
 					//! Console Writing
@@ -1513,7 +1513,7 @@ module.exports = {
 					// If there is an error
 					if (err) {
 						console.log('\u001b[' + 31 + 'm' + '[User] [Json] [Delete_Updated] Failed to Save Json Data [ user.json ] ' + '\u001b[0m');	
-						console.log('\u001b[' + 31 + 'm' + error + '\u001b[0m');
+						console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 					}							
 
 					//! Console Writing
