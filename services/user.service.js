@@ -220,28 +220,7 @@ module.exports = {
 			//! If Data Is Available
 			if (dbFind) {
 				
-				//! Company - Update
-			    const dbFind_company = db_company.find(u => u.token == dbFind.companyToken); //! Search - Company
-				dbFind.companyTitle = dbFind.companyToken ? dbFind_company?.titleofcompany : null;
-				dbFind.categoryToken = dbFind.companyToken ? dbFind_company?.categoryToken : null;
-				dbFind.categoryTitle = dbFind.companyToken ? dbFind_company?.categoryTitle : null;
-				//! Company - Update - END
 				
-			
-				
-				//! CategoryTitle - Update
-				const dbFind_categoryTitle = db_category.find(u => u.token == dbFind.categoryToken); //! Search - Company
-				dbFind.categoryTitle = dbFind_categoryTitle?.categoryTitle ? dbFind_categoryTitle?.categoryTitle : null;
-				//! CategoryTitle - Update END
-				
-				//ctx.params.dbFind = dbFind
-				//ctx.params.dbFind_categoryTitle = dbFind_categoryTitle
- 				
-				//! Role - Update
-			    const dbFind_role = db_role.find(u => u.token == dbFind.userRoleToken); //! Search - Company
-				dbFind.userRoleTitle = dbFind_role?.userRoleTitle ? dbFind_role?.userRoleTitle : null;
-				
-
 				//! Return Api   
 				ctx.params.title = "user.service -> Data Search"
 				ctx.params.table = "user.json"
