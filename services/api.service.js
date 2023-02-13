@@ -16,6 +16,8 @@ this.fastify = fastify; //! Fastify
 const fastifyStatic = require('fastify-static')  //! Fastify-static
 fastify.register(require('fastify-cors'), {})  //! Fastify-cors
 
+var md5 = require('md5'); //! Md5
+
 const axios = require('axios'); //! Axios
 const querystring = require('querystring'); //! Axios Querystring
 
@@ -207,6 +209,24 @@ module.exports = {
 			}) //! Token
 
 			//! -------------------------   Token Resolution End	-----------------------------
+			
+			
+			//! -------------------------   MD5	-----------------------------
+
+			fastify.post('/md5', function (req, res) {
+
+				const commingData = req.body;
+				const md5_create = md5(commingData.password);
+				
+
+				res.send({
+					"password":req.body.password,
+					"md5_create":md5_create
+				})
+
+			}) //! Token
+
+			//! -------------------------   MD5 End	-----------------------------
 
 
 		
