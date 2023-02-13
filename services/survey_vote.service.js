@@ -3,20 +3,20 @@ const dayjs = require('dayjs'); //! Time
 const fs = require("fs"); //! File
 const sign = require('jwt-encode'); //! Token
 const jwt_decode = require('jwt-decode'); //! Token
-const db = require('../public/DB/survey.json'); //! Json
+const db = require('../public/DB/survey_vote.json'); //! Json
 
 
 module.exports = {
-	name: "survey",
+	name: "survey_vote",
 
 	actions: {
 		async info(ctx) {
 
 			//! Return Api
-			ctx.params.title = "survey.service -> Info"
-			ctx.params.table = "survey.json"
+			ctx.params.title = "survey_vote.service -> Info"
+			ctx.params.table = "survey_vote.json"
 			ctx.params.time = dayjs().toDate()
-			ctx.params.note = "Anket"
+			ctx.params.note = "Oylama"
 			ctx.params.APi_URL = process.env.APi_URL
 
 			return ctx.params
@@ -47,26 +47,26 @@ module.exports = {
 			try {
 
 				//! Return Api   
-				ctx.params.title = "survey.service -> All Data"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> All Data"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 1
 				ctx.params.size=db.length
 				ctx.params.DB = db?.sort((a, b) => (a.id > b.id ? -1 : 1))		
 
 				//! Console Writing
-				console.log('\u001b[' + 32 + 'm' + '[survey] [All] All Data Read [ /api/survey/all ] ' + '\u001b[0m');
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [All] All Data Read [ /api/survey_vote/all ] ' + '\u001b[0m');
 
 			} catch (error) {
 
 				//! Return Api   
-				ctx.params.title = "survey.service -> All Data"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> All Data"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
 				ctx.params.size= 0
 				ctx.params.DB = error
 
 				//! Console Writing
-				console.log('\u001b[' + 31 + 'm' + '[survey] [All] All Data Could Not Read  [ /api/survey/all ] ' + '\u001b[0m');
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [All] All Data Could Not Read  [ /api/survey_vote/all ] ' + '\u001b[0m');
 				console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 			
 			}
@@ -91,26 +91,26 @@ module.exports = {
 				const dbLimit = db.slice(bottomLimit, topLimit);
 			
 				//! Return Api   
-				ctx.params.title = "survey.service -> All Data"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> All Data"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 1
 				ctx.params.size=dbLimit.length
 			    ctx.params.DB = order === "asc" ? dbLimit?.sort((a, b) => (a.id < b.id ? -1 : 1)) : dbLimit?.sort((a, b) => (a.id > b.id ? -1 : 1))
 
 				//! Console Writing
-				console.log('\u001b[' + 32 + 'm' + '[survey] [All] All Data Read [ /api/survey/all/params ] ' + '\u001b[0m');
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [All] All Data Read [ /api/survey_vote/all/params ] ' + '\u001b[0m');
 
 			} catch (error) {
 
 				//! Return Api   
-				ctx.params.title = "survey.service -> All Data"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> All Data"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
 				ctx.params.size= 0
 				ctx.params.DB = error
 
 				//! Console Writing
-				console.log('\u001b[' + 31 + 'm' + '[survey] [All] All Data Could Not Read  [ /api/survey/all/params ] ' + '\u001b[0m');
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [All] All Data Could Not Read  [ /api/survey_vote/all/params ] ' + '\u001b[0m');
 				console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 			
 			}
@@ -133,28 +133,28 @@ module.exports = {
 			if (dbFind) {	               
                 
 				//! Return Api   
-				ctx.params.title = "survey.service -> Data Search"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 1
 				ctx.params.DB = dbFind
 			
 
 				//! Console Writing
-				console.log('\u001b[' + 32 + 'm' + '[survey] [Find] Data Search [ /api/survey/find ] ' + '\u001b[0m');
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Find] Data Search [ /api/survey_vote/find ] ' + '\u001b[0m');
 			}
 
 			//! No Data
 			else {
 				
 				//! Return Api   
-				ctx.params.title = "survey.service -> Data Search"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey  Not Found"
+				ctx.params.DB = "survey_vote  Not Found"
 			
 				
 				//! Console Writing
-				console.log('\u001b[' + 31 + 'm' + '[survey] [Find] No Data Found [ /api/survey/find ] ' + '\u001b[0m');	
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Find] No Data Found [ /api/survey_vote/find ] ' + '\u001b[0m');	
 
 			}
 
@@ -172,28 +172,28 @@ module.exports = {
 			if (dbFind) {	               
                 
 				//! Return Api   
-				ctx.params.title = "survey.service -> Data Search"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 1
 				ctx.params.DB = dbFind
 			
 
 				//! Console Writing
-				console.log('\u001b[' + 32 + 'm' + '[survey] [Find] Data Search [ /api/survey/find_post ] ' + '\u001b[0m');
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Find] Data Search [ /api/survey_vote/find_post ] ' + '\u001b[0m');
 			}
 
 			//! No Data
 			else {
 				
 				//! Return Api   
-				ctx.params.title = "survey.service -> Data Search"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey  Not Found"
+				ctx.params.DB = "survey_vote  Not Found"
 			
 				
 				//! Console Writing
-				console.log('\u001b[' + 31 + 'm' + '[survey] [Find] No Data Found [ /api/survey/find_post ] ' + '\u001b[0m');	
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Find] No Data Found [ /api/survey_vote/find_post ] ' + '\u001b[0m');	
 
 			}
 
@@ -211,28 +211,28 @@ module.exports = {
 			if (dbFind) {	               
                 
 				//! Return Api   
-				ctx.params.title = "survey.service -> Data Search"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 1
 				ctx.params.DB = dbFind
 			
 
 				//! Console Writing
-				console.log('\u001b[' + 32 + 'm' + '[survey] [Find] Data Search [ /api/survey/find_token ] ' + '\u001b[0m');
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Find] Data Search [ /api/survey_vote/find_token ] ' + '\u001b[0m');
 			}
 
 			//! No Data
 			else {
 				
 				//! Return Api   
-				ctx.params.title = "survey.service -> Data Search"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey  Not Found"
+				ctx.params.DB = "survey_vote  Not Found"
 			
 				
 				//! Console Writing
-				console.log('\u001b[' + 31 + 'm' + '[survey] [Find] No Data Found [ /api/survey/find_token ] ' + '\u001b[0m');	
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Find] No Data Found [ /api/survey_vote/find_token ] ' + '\u001b[0m');	
 
 			}
 
@@ -250,29 +250,29 @@ module.exports = {
 			if (dbFilter.length > 0) {   	               
                 
 				//! Return Api   
-				ctx.params.title = "survey.service -> Data Search"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 1
 				ctx.params.size=dbFilter.length
 				ctx.params.DB = dbFilter?.sort((a, b) => (a.id > b.id ? -1 : 1))
 			
 
 				//! Console Writing
-				console.log('\u001b[' + 32 + 'm' + '[survey] [Find] Data Search [ /api/survey/find_user ] ' + '\u001b[0m');
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Find] Data Search [ /api/survey_vote/find_user ] ' + '\u001b[0m');
 			}
 
 			//! No Data
 			else {
 				
 				//! Return Api   
-				ctx.params.title = "survey.service -> Data Search"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey  Not Found"
+				ctx.params.DB = "survey_vote  Not Found"
 			
 				
 				//! Console Writing
-				console.log('\u001b[' + 31 + 'm' + '[survey] [Find] No Data Found [ /api/survey/find_user ] ' + '\u001b[0m');	
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Find] No Data Found [ /api/survey_vote/find_user ] ' + '\u001b[0m');	
 
 			}
 
@@ -290,29 +290,29 @@ module.exports = {
 			if (dbFilter.length > 0) {   	               
                 
 				//! Return Api   
-				ctx.params.title = "survey.service -> Data Search"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 1
 				ctx.params.size=dbFilter.length
 				ctx.params.DB = dbFilter?.sort((a, b) => (a.id > b.id ? -1 : 1))
 			
 
 				//! Console Writing
-				console.log('\u001b[' + 32 + 'm' + '[survey] [Find] Data Search [ /api/survey/find_serverToken ] ' + '\u001b[0m');
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Find] Data Search [ /api/survey_vote/find_serverToken ] ' + '\u001b[0m');
 			}
 
 			//! No Data
 			else {
 				
 				//! Return Api   
-				ctx.params.title = "survey.service -> Data Search"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey  Not Found"
+				ctx.params.DB = "survey_vote  Not Found"
 			
 				
 				//! Console Writing
-				console.log('\u001b[' + 31 + 'm' + '[survey] [Find] No Data Found [ /api/survey/find_serverToken ] ' + '\u001b[0m');	
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Find] No Data Found [ /api/survey_vote/find_serverToken ] ' + '\u001b[0m');	
 
 			}
 
@@ -330,29 +330,29 @@ module.exports = {
 			if (dbFilter.length > 0) {   	               
                 
 				//! Return Api   
-				ctx.params.title = "survey.service -> Data Search"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 1
 				ctx.params.size=dbFilter.length
 				ctx.params.DB = dbFilter?.sort((a, b) => (a.id > b.id ? -1 : 1))
 			
 
 				//! Console Writing
-				console.log('\u001b[' + 32 + 'm' + '[survey] [Find] Data Search [ /api/survey/find_serverToken ] ' + '\u001b[0m');
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Find] Data Search [ /api/survey_vote/find_serverToken ] ' + '\u001b[0m');
 			}
 
 			//! No Data
 			else {
 				
 				//! Return Api   
-				ctx.params.title = "survey.service -> Data Search"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey  Not Found"
+				ctx.params.DB = "survey_vote  Not Found"
 			
 				
 				//! Console Writing
-				console.log('\u001b[' + 31 + 'm' + '[survey] [Find] No Data Found [ /api/survey/find_serverToken ] ' + '\u001b[0m');	
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Find] No Data Found [ /api/survey_vote/find_serverToken ] ' + '\u001b[0m');	
 
 			}
 
@@ -403,41 +403,41 @@ module.exports = {
 
 	
 				//Writing Data into Json -> db
-				fs.writeFile('./public/DB/survey.json', JSON.stringify(db), err => {
+				fs.writeFile('./public/DB/survey_vote.json', JSON.stringify(db), err => {
 
 					// If there is an error
 					if (err) {
-						console.log('\u001b[' + 31 + 'm' + '[survey] [Json] [Add] Failed to Save Json Data [ survey.json ] ' + '\u001b[0m');	
+						console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Json] [Add] Failed to Save Json Data [ survey_vote.json ] ' + '\u001b[0m');	
 						console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 					}							
 
 					//! Console Writing
-					console.log('\u001b[' + 32 + 'm' + '[survey] [Json] [Add] Json Data Saved [ survey.json ] ' + '\u001b[0m');								
+					console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Json] [Add] Json Data Saved [ survey_vote.json ] ' + '\u001b[0m');								
 					
 				});
 				// End Writing Data into Json -> db	
 
 
 				//! Return Api   
-				ctx.params.title = "survey.service -> Adding Data"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Adding Data"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 1
 				ctx.params.message = "Data Added"	
 				
 				//! Console Writing
-				console.log('\u001b[' + 32 + 'm' + '[survey] [Add] Data Added [ /api/survey/add ] ' + '\u001b[0m');	
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Add] Data Added [ /api/survey_vote/add ] ' + '\u001b[0m');	
 				
 
 			} catch (error) {
 
 				//! Return Api   
-				ctx.params.title = "survey.service -> Adding Data"
-				ctx.params.table = "survey.json"
+				ctx.params.title = "survey_vote.service -> Adding Data"
+				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
 				ctx.params.message = "Failed to Add Data"	
 				
 				//! Console Writing
-				console.log('\u001b[' + 31 + 'm' + '[survey] [Add] Failed to Add Data [ /api/survey/add ] ' + '\u001b[0m');	
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Add] Failed to Add Data [ /api/survey_vote/add ] ' + '\u001b[0m');	
 
 			}
 
@@ -466,16 +466,16 @@ module.exports = {
 				// End  Reference Data Updating
 	
 				//Writing Data into Json -> db
-				fs.writeFile('./public/DB/survey.json', JSON.stringify(db), err => {
+				fs.writeFile('./public/DB/survey_vote.json', JSON.stringify(db), err => {
 
 					// If there is an error
 					if (err) {
-						console.log('\u001b[' + 31 + 'm' + '[survey] [Json] [Update] Failed to Save Json Data [ survey.json ] ' + '\u001b[0m');	
+						console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Json] [Update] Failed to Save Json Data [ survey_vote.json ] ' + '\u001b[0m');	
 						console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 					}							
 
 					//! Console Writing
-					console.log('\u001b[' + 32 + 'm' + '[survey] [Json] [Update] Json Data Saved [ survey.json ] ' + '\u001b[0m');								
+					console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Json] [Update] Json Data Saved [ survey_vote.json ] ' + '\u001b[0m');								
 					
 				});
 				// End Writing Data into Json -> db	
@@ -483,13 +483,13 @@ module.exports = {
 				
               
                 //! Return Api	
-				ctx.params.title = "survey.service -> Data Update"
-				ctx.params.table = "survey.json"        
+				ctx.params.title = "survey_vote.service -> Data Update"
+				ctx.params.table = "survey_vote.json"        
 				ctx.params.status = 1			
 				ctx.params.message="Data Updated"
 
 				//! Console Writing	
-				console.log('\u001b[' + 32 + 'm' + '[survey] [Update] Data Update [ /api/survey/update ]' + '\u001b[0m');
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Update] Data Update [ /api/survey_vote/update ]' + '\u001b[0m');
 
 			}
 
@@ -498,13 +498,13 @@ module.exports = {
 				
 				
                //! Return Api	
-			   ctx.params.title = "survey.service -> Data Update"
-			   ctx.params.table = "survey.json"        
+			   ctx.params.title = "survey_vote.service -> Data Update"
+			   ctx.params.table = "survey_vote.json"        
 			   ctx.params.status = 0			
 			   ctx.params.message="Data could not be updated"
 
 			   //! Console Writing	
-			   console.log('\u001b[' + 31 + 'm' + '[survey] [Update] Data could not be updated [ /api/survey/update ] ' + '\u001b[0m');
+			   console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Update] Data could not be updated [ /api/survey_vote/update ] ' + '\u001b[0m');
 
 			}
 			
@@ -527,41 +527,41 @@ module.exports = {
 				db.splice(index, 1);
 
 				//Writing Data into Json -> db
-				fs.writeFile('./public/DB/survey.json', JSON.stringify(db), err => {
+				fs.writeFile('./public/DB/survey_vote.json', JSON.stringify(db), err => {
 
 					// If there is an error
 					if (err) {
-						console.log('\u001b[' + 31 + 'm' + '[survey] [Json] [Delete] Failed to Save Json Data [ survey.json ] ' + '\u001b[0m');	
+						console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Json] [Delete] Failed to Save Json Data [ survey_vote.json ] ' + '\u001b[0m');	
 						console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 					}							
 
 					//! Console Writing
-					console.log('\u001b[' + 32 + 'm' + '[survey] [Json] [Delete] Json Data Saved [ survey.json ] ' + '\u001b[0m');								
+					console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Json] [Delete] Json Data Saved [ survey_vote.json ] ' + '\u001b[0m');								
 					
 				});
 				// End Writing Data into Json -> db	
 			
 				
                 //! Return Api   
-				ctx.params.title = "survey.service -> Data Deletion"
-				ctx.params.table  = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Deletion"
+				ctx.params.table  = "survey_vote.json"
 				ctx.params.status = 1
 				ctx.params.message = "Data Deleted"	
 				
 				//! Console Writing	
-			    console.log('\u001b[' + 32 + 'm' + '[survey] [Delete] Data Deleted [ /api/survey/delete/:id ] ' + '\u001b[0m');
+			    console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Delete] Data Deleted [ /api/survey_vote/delete/:id ] ' + '\u001b[0m');
                
 
 			} else {
 
 				//! Return Api   
-				ctx.params.title = "survey.service -> Data Deletion"
-				ctx.params.table  = "survey.json"
+				ctx.params.title = "survey_vote.service -> Data Deletion"
+				ctx.params.table  = "survey_vote.json"
 				ctx.params.status = 0
 				ctx.params.message = "Failed to Delete Data"	
 				
 				//! Console Writing	
-				console.log('\u001b[' + 31 + 'm' + '[survey] [Delete] Failed to Delete Data [ /api/survey/delete/:id ] ' + '\u001b[0m');
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Delete] Failed to Delete Data [ /api/survey_vote/delete/:id ] ' + '\u001b[0m');
 
 			}
 			
@@ -589,16 +589,16 @@ module.exports = {
 				dbFind["deleted_byToken"] = ctx.params.deleted_byToken
 	
 				//Writing Data into Json -> db
-				fs.writeFile('./public/DB/survey.json', JSON.stringify(db), err => {
+				fs.writeFile('./public/DB/survey_vote.json', JSON.stringify(db), err => {
 
 					// If there is an error
 					if (err) {
-						console.log('\u001b[' + 31 + 'm' + '[survey] [Json] [Delete_Updated] Failed to Save Json Data [ survey.json ] ' + '\u001b[0m');	
+						console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Json] [Delete_Updated] Failed to Save Json Data [ survey_vote.json ] ' + '\u001b[0m');	
 						console.log('\u001b[' + 31 + 'm' + err+ '\u001b[0m');
 					}							
 
 					//! Console Writing
-					console.log('\u001b[' + 32 + 'm' + '[survey] [Json] [Delete_Updated] Json Data Saved [ survey.json ] ' + '\u001b[0m');								
+					console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Json] [Delete_Updated] Json Data Saved [ survey_vote.json ] ' + '\u001b[0m');								
 					
 				});
 				// End Writing Data into Json -> db	
@@ -606,13 +606,13 @@ module.exports = {
 			
               
                 //! Return Api	
-				ctx.params.title = "survey.service -> Data Pass Deletion"
-				ctx.params.table  = "survey.json"        
+				ctx.params.title = "survey_vote.service -> Data Pass Deletion"
+				ctx.params.table  = "survey_vote.json"        
 				ctx.params.status = 1			
 				ctx.params.message="Data Updated"
 
 				//! Console Writing	
-				console.log('\u001b[' + 32 + 'm' + '[survey] [Delete_Updated] Data Update [ /api/survey/update ]' + '\u001b[0m');
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Delete_Updated] Data Update [ /api/survey_vote/update ]' + '\u001b[0m');
 
 			}
 
@@ -621,13 +621,13 @@ module.exports = {
 				
 				
                //! Return Api	
-			   ctx.params.title = "survey.service -> Data Pass Deletion"
-			   ctx.params.table  = "survey.json"        
+			   ctx.params.title = "survey_vote.service -> Data Pass Deletion"
+			   ctx.params.table  = "survey_vote.json"        
 			   ctx.params.status = 0			
 			   ctx.params.message="Data could not be updated"
 
 			   //! Console Writing	
-			   console.log('\u001b[' + 31 + 'm' + '[survey] [Delete_Updated] Data could not be updated [ /api/survey/update ] ' + '\u001b[0m');
+			   console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Delete_Updated] Data could not be updated [ /api/survey_vote/update ] ' + '\u001b[0m');
 
 			}
 			
