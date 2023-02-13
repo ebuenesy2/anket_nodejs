@@ -5,10 +5,6 @@ const sign = require('jwt-encode'); //! Token
 const jwt_decode = require('jwt-decode'); //! Token
 const db = require('../public/DB/user.json'); //! Json
 
-const db_company = require('../public/DB/company.json'); //! Json - company
-const db_bankAccount = require('../public/DB/bankAccount.json'); //! Json - bankAccount
-const db_category = require('../public/DB/category.json'); //! Json Category
-const db_role = require('../public/DB/userRole.json'); //! Json - userRole
 
 module.exports = {
 	name: "user",
@@ -54,60 +50,6 @@ module.exports = {
 			try {
 				
 				
-	            for (var i = 0; i < db.length; i++) {
-				
-					//! Company - Update
-					if (db[i].companyToken) {
-						
-						const dbFind_companyArray = db[i].companyToken; //! Company 
-						
-						for (let index = 0; index < dbFind_companyArray.length; index++) {
-							const element = dbFind_companyArray[index]; //! Search - CompanyToken
-							const dbFind_company = db_company.find(u => u.token == element); //! Search - Company
-							db[i].companyInformation[index] = dbFind_company || null; //! Data Search
-						}
-						
-					} //! Company - Update - END
-					
-					
-					//! CategoryToken - Update
-					if (db[i].categoryToken) {
-						
-						const dbFind_categoryArray = db[i].categoryToken; //! category
-						
-						for (let index = 0; index < dbFind_categoryArray.length; index++) {
-							const element = dbFind_categoryArray[index]; //! Search - category
-							const dbFind_db_category= db_category.find(u => u.token == element); //! Search - category
-							db[i].categoryInformation[index] = dbFind_db_category || null; //! Data Search
-						}
-						
-					} //! CategoryToken - Update - END
-					
-					
-					//! BankAccount - Update
-					if (db[i].bankAccountToken) {
-						
-						const dbFind_bankAccountArray = db[i].bankAccountToken; //! bankAccount
-						
-						for (let index = 0; index < dbFind_bankAccountArray.length; index++) {
-							const element = dbFind_bankAccountArray[index]; //! Search - bankAccount
-							const dbFind_db_bankAccount = db_bankAccount.find(u => u.token == element); //! Search - Company
-							db[i].bankAccountInformation[index] = dbFind_db_bankAccount || null; //! Data Search
-						}
-						
-					} //! BankAccount - Update - END
-					
-					
-					
-					
-					
-					//! Role - Update
-					const dbFind_role = db_role.find(u => u.token == db[i].userRoleToken); //! Search - Company
-					db[i].userRoleTitle = dbFind_role?.userRoleTitle ? dbFind_role?.userRoleTitle : null;
-					//! Role - Update END
-					
-				}
-
 				//! Return Api   
 				ctx.params.title = "user.service -> All Data"
 				ctx.params.table = "user.json"
