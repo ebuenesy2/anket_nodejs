@@ -4,18 +4,26 @@
 		"serverId": 0,
 		"serverToken": "yildirimdev",
 
-        "question":"Soru1",
-        "answers": [
+		"question": "Soru1",
+		"answers": [
 			{
-				"id":1,
-				"title":"cevap1"
+				"id": 1,
+				"title": "cevap1"
 			},
 			{
-				"id":2,
-				"title":"cevap2"
+				"id": 2,
+				"title": "cevap2"
+			},
+			{
+				"id": 3,
+				"title": "cevap3"
+			},
+			{
+				"id": 4,
+				"title": "cevap4"
 			}
 		],
-		"voteCount":0,
+		"voteCount": 0,
 		"token": "token1",
 		"created_at": "2022-03-06T13:14:43.211Z",
 		"created_byToken": "created_byToken",
@@ -27,32 +35,68 @@
 		"deleted_at": null,
 		"deleted_byToken": null
 	},
-    {
+	{
 		"id": 2,
 		"serverId": 0,
 		"serverToken": "yildirimdev",
 
-        "question":"En büyük kimdir?",
-        "answers": [
+		"question": "En büyük kimdir?",
+		"answers": [
 			{
-				"id":1,
-				"title":"Gs"
+				"id": 1,
+				"title": "Gs"
 			},
 			{
-				"id":2,
-				"title":"FB"
+				"id": 2,
+				"title": "FB"
 			},
 			{
-				"id":3,
-				"title":"BJK"
+				"id": 3,
+				"title": "BJK"
 			},
 			{
-				"id":4,
-				"title":"TrabzonSpor"
+				"id": 4,
+				"title": "TrabzonSpor"
 			}
 		],
-		"voteCount":0,
+		"voteCount": 0,
 		"token": "token2",
+		"created_at": "2022-03-06T13:14:43.211Z",
+		"created_byToken": "created_byToken",
+		"isUpdated": false,
+		"updated_at": null,
+		"updated_byToken": null,
+		"isActive": true,
+		"isDeleted": false,
+		"deleted_at": null,
+		"deleted_byToken": null
+	},
+	{
+		"id": 3,
+		"serverId": 0,
+		"serverToken": "yildirimdev",
+
+		"question": "Soru 3",
+		"answers": [
+			{
+				"id": 1,
+				"title": "cevap1"
+			},
+			{
+				"id": 2,
+				"title": "cevap2"
+			},
+			{
+				"id": 3,
+				"title": null
+			},
+			{
+				"id": 4,
+				"title": null
+			}
+		],
+		"voteCount": 0,
+		"token": "token3",
 		"created_at": "2022-03-06T13:14:43.211Z",
 		"created_byToken": "created_byToken",
 		"isUpdated": false,
