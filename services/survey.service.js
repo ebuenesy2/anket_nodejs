@@ -4,7 +4,7 @@ const fs = require("fs"); //! File
 const sign = require('jwt-encode'); //! Token
 const jwt_decode = require('jwt-decode'); //! Token
 const db = require('../public/DB/survey.json'); //! Json
-
+const db_vote = require('../public/DB/survey_vote.json'); //! Json
 
 module.exports = {
 	name: "survey",
@@ -45,12 +45,27 @@ module.exports = {
 		async all(ctx) {
 
 			try {
+				
+                
+			    //! Regulation
+				for (let index = 0; index < db.length; index++) {
+					const elementId = db[index]["id"];
+
+					//! Search
+		        	const dbFilter = db_vote.filter(u => u.surveyId == elementId);
+					
+					//! Update
+					db[index]["voteCount"] = dbFilter.length
+
+				}  //! Regulation End
+				
 
 				//! Return Api   
 				ctx.params.title = "survey.service -> All Data"
 				ctx.params.table = "survey.json"
 				ctx.params.status = 1
 				ctx.params.size=db.length
+				ctx.params.voteCount = db_vote.length
 				ctx.params.DB = db?.sort((a, b) => (a.id > b.id ? -1 : 1))		
 
 				//! Console Writing
@@ -386,6 +401,7 @@ module.exports = {
 					serverToken: ctx.params.serverToken,
 					question: ctx.params.question,
 					answers: ctx.params.answers,
+					voteCount:0,
 					token:jwt,				
 					created_at: dayjs().format(),
 					created_byToken: ctx.params.created_byToken,

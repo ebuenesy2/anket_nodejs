@@ -5,6 +5,9 @@ const sign = require('jwt-encode'); //! Token
 const jwt_decode = require('jwt-decode'); //! Token
 const db = require('../public/DB/survey_vote.json'); //! Json
 
+const db_survey = require('../public/DB/survey.json'); //! Json -> survey
+const db_user = require('../public/DB/user.json'); //! Json -> user
+
 
 module.exports = {
 	name: "survey_vote",
@@ -150,7 +153,7 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey_vote  Not Found"
+				ctx.params.DB = []
 			
 				
 				//! Console Writing
@@ -189,7 +192,7 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey_vote  Not Found"
+				ctx.params.DB = []
 			
 				
 				//! Console Writing
@@ -228,7 +231,7 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey_vote  Not Found"
+				ctx.params.DB = []
 			
 				
 				//! Console Writing
@@ -268,7 +271,7 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey_vote  Not Found"
+				ctx.params.DB = []
 			
 				
 				//! Console Writing
@@ -308,7 +311,7 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey_vote  Not Found"
+				ctx.params.DB = []
 			
 				
 				//! Console Writing
@@ -338,7 +341,7 @@ module.exports = {
 			
 
 				//! Console Writing
-				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Find] Data Search [ /api/survey_vote/find_serverToken ] ' + '\u001b[0m');
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Find] Data Search [ /api/survey_vote/find_serverId ] ' + '\u001b[0m');
 			}
 
 			//! No Data
@@ -348,16 +351,70 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey_vote  Not Found"
+				ctx.params.DB = []
 			
 				
 				//! Console Writing
-				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Find] No Data Found [ /api/survey_vote/find_serverToken ] ' + '\u001b[0m');	
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Find] No Data Found [ /api/survey_vote/find_serverId ] ' + '\u001b[0m');	
 
 			}
 
             //! Return
 			delete ctx.params.serverId
+
+			return ctx.params
+		},
+		async find_surveyId(ctx) {
+
+			//! Search
+			const dbFilter = db.filter(u => u.surveyId == ctx.params.id);
+
+			//! If Data Is Available
+			if (dbFilter.length > 0) {   	   
+				
+				
+				for (let index = 0; index < dbFilter.length; index++) {
+					const element_voterToken = dbFilter[index]["voterToken"];
+					const element_surveyId = dbFilter[index]["surveyId"];
+					const element_surveyAnswersId = dbFilter[index]["surveyAnswersId"];
+
+					var dbFind_user = db_user.find(u => u.token == element_voterToken);
+					dbFilter[index]["voterInfo"] = dbFind_user;
+
+					var dbFind_survey = db_survey.find(u => u.id == element_surveyId);
+					dbFilter[index]["surveyAnswersTitle"] = dbFind_survey.answers.find(u => u.id === element_surveyAnswersId)?.title;
+
+				}
+                
+				//! Return Api   
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
+				ctx.params.status = 1
+				ctx.params.size=dbFilter.length
+				ctx.params.DB = dbFilter?.sort((a, b) => (a.id > b.id ? -1 : 1))
+			
+
+				//! Console Writing
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Find] Data Search [ /api/survey_vote/find_surveyId ] ' + '\u001b[0m');
+			}
+
+			//! No Data
+			else {
+				
+				//! Return Api   
+				ctx.params.title = "survey_vote.service -> Data Search"
+				ctx.params.table = "survey_vote.json"
+				ctx.params.status = 0
+				ctx.params.DB = []
+			
+				
+				//! Console Writing
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Find] No Data Found [ /api/survey_vote/find_surveyId ] ' + '\u001b[0m');	
+
+			}
+
+            //! Return
+			delete ctx.params.id
 
 			return ctx.params
 		},
@@ -382,14 +439,18 @@ module.exports = {
 				//! Data to add
 				const willSaveData = {
 					id:TokenId,		
-					serverId: ctx.params.serverId,
-					serverToken: ctx.params.serverToken,
-					voterToken: ctx.params.voterToken,
-					surveyToken: ctx.params.surveyToken,
-					surveyAnswersId: ctx.params.surveyAnswersId,
+					serverId: ctx.params.serverId || null,
+					serverToken: ctx.params.serverToken || null,
+					voterToken: ctx.params.voterToken || null,
+					voterId: ctx.params.voterId || null,
+					voterInfo: null,
+					surveyToken: ctx.params.surveyToken || null,
+					surveyId: ctx.params.surveyId || null,
+					surveyAnswersId: ctx.params.surveyAnswersId || null,
+					surveyAnswersTitle:null,
 					token:jwt,				
 					created_at: dayjs().format(),
-					created_byToken: ctx.params.created_byToken,
+					created_byToken: ctx.params.created_byToken || null,
 					isUpdated: false,
 					updated_at: null,
 					updated_byToken : null,
@@ -449,6 +510,9 @@ module.exports = {
 		    delete ctx.params.voterToken 
 		    delete ctx.params.surveyToken 
 		    delete ctx.params.surveyAnswersId 
+
+		    delete ctx.params.voterId 
+		    delete ctx.params.surveyId 
 		    delete ctx.params.created_byToken 
               
 			return ctx.params
