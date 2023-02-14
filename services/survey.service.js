@@ -460,6 +460,7 @@ module.exports = {
 			//! Delete
 		    delete ctx.params.serverId 
 		    delete ctx.params.serverToken 
+		    delete ctx.params.created_byToken 
 		    delete ctx.params.question 
 		    delete ctx.params.answers 
               

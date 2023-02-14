@@ -661,54 +661,7 @@ module.exports = {
 						message = "Email Boş Geçiremez."						
 					}
 
-					// //! username check
-					// if(user_username) {
-					// 	error_check=1
-					// 	status = 0
-					// 	message = "Bu Kullanıcı Adı [ username ] Kayıtlıdır."			
-					// }
-
-					// //! username check
-					// if(ctx.params.username==""||ctx.params.username==null) {
-					// 	error_check=1
-					// 	status = 0
-					// 	message = "Kullanıcı Adı [ username ] Boş Geçiremez."						
-					// }				
-
 					
-				    if (ctx.params.phone) {
-						 
-						//! tel check
-						if(user_phone) {
-							error_check=1
-							status = 0
-							message = "Bu Telefon Numarası [ phone ] Kayıtlıdır."			
-						}
-
-						//! username check
-						if(ctx.params.phone==""||ctx.params.phone==null) {
-							error_check=1
-							status = 0
-							message = "Bu Telefon Numarası [ phone ] Kayıtlıdır."					
-						}
-				    }
-									
-				    if (ctx.params.gsm) {
-
-						//! tel check
-						if(user_gsm) {
-							error_check=1
-							status = 0
-							message = "Bu Gsm Numarası [ gsm ] Kayıtlıdır."			
-						}
-
-						//! username check
-						if(ctx.params.gsm==""||ctx.params.gsm==null) {
-							error_check=1
-							status = 0
-							message = "Bu Gsm Numarası [ gsm ] Kayıtlıdır."					
-						}
-					}
                     
 					
 					if(error_check==0) {
@@ -747,35 +700,17 @@ module.exports = {
 								userRoleToken: ctx.params.userRoleToken ? ctx.params.userRoleToken : "token3",
 								userTypeTitle: null,
 								userTypeToken: ctx.params.userTypeToken ? ctx.params.userTypeToken : "token1",
-								
-								companyInformation: ctx.params.companyInformation || [],
-								companyToken: ctx.params.companyToken || [],
-								categoryInformation: ctx.params.categoryInformation || [],
-								categoryToken: ctx.params.categoryToken || [],
-								bankAccountInformation: ctx.params.bankAccountInformation || [],
-								bankAccountToken: ctx.params.bankAccountToken || [],
-								
-								name: ctx.params.name,
-								surname: ctx.params.surname,
-								userImageUrl: process.env.Default_UserImageUrl,
+								name: ctx.params.name || null,
+								surname: ctx.params.surname || null,
+								userImageUrl: process.env.Default_UserImageUrl || null,
 								userImageUploadUrl: null,
 								coverImageUrl: null,
 								coverImageUploadUrl: null,
 								username: ctx.params.username ? ctx.params.username : null,
 								email: ctx.params.email,
-								password: password,	
-								phone: ctx.params.phone,
+								password: password || null,	
+								phone: ctx.params.phone || null,
 								gsm: ctx.params.gsm ? ctx.params.gsm : null,
-								address: ctx.params.address ? ctx.params.address : null,
-								profession: ctx.params.profession ? ctx.params.profession : null,
-								dateofBirth: ctx.params.dateofBirth,
-								dayOfBirth: dayjs(ctx.params.dateofBirth).date(),
-								monthOfBirth: dayjs(ctx.params.dateofBirth).add(1, 'month').month(),
-								yearOfBirth: dayjs(ctx.params.dateofBirth).year(),
-								age: null,
-								country: ctx.params.country ? ctx.params.country : null,
-								city: ctx.params.city ? ctx.params.city : null,
-								gender: ctx.params.gender ? ctx.params.gender : null,
 								adminCheck: 0,
 								confirmation_code : "",
 								token:jwt,
@@ -819,9 +754,7 @@ module.exports = {
 						    message = "Data Added"
 						 
 						    if (process.env.MailSend_UserRegisterConfirmationStatus == 1) {
-								
-								let site_url = process.env.SiteUrl + "/user_admin_check_success?confirmation_code=";
-								
+							
 								var messageHtml = '';
 							
 								messageHtml += '<div style="display: flex;">';
@@ -831,9 +764,7 @@ module.exports = {
 								messageHtml += '<img src="'+ process.env.Default_Site_Logo+'" alt="" srcset="">';
 								messageHtml += '</div>';
 								messageHtml += '<h2>Merhaba '+ctx.params.name+" "+ctx.params.surname+'</h2> ';
-								messageHtml += '<p>Bex360 Tedarikçi Sistemine kayıt olduğunuz için çok teşekkür ederiz.</p>';
-								messageHtml += '<p>Hesabınızı onaylamak için</p>';
-								messageHtml += '<a href="' + site_url + userToken + '">Lütfen Tıklayınız</a>';
+								messageHtml += '<p>Anket Projesi Sistemine kayıt olduğunuz için çok teşekkür ederiz.</p>';
 								messageHtml += '</div>';
 
 								messageHtml += '</div>';
@@ -1899,7 +1830,7 @@ module.exports = {
 					messageHtml += '<img src="'+ process.env.Default_Site_Logo+'" alt="" srcset="">';
 					messageHtml += '</div>';
 					messageHtml += '<h2>Merhaba '+dbFind.name+" "+dbFind.surname+'</h2> ';
-					messageHtml += '<p>Bex360 Tedarikçi Sistemine kayıt olduğunuz için çok teşekkür ederiz.</p>';
+					messageHtml += '<p>Anket ProjesiSistemine kayıt olduğunuz için çok teşekkür ederiz.</p>';
 					messageHtml += '<p>Hesabınızı onaylamak için</p>';
 					messageHtml += '<a href="' + site_url + dbFind.token + '">Lütfen Tıklayınız</a>';
 					messageHtml += '</div>';
