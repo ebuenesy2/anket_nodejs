@@ -152,7 +152,7 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey_vote  Not Found"
+				ctx.params.DB = []
 			
 				
 				//! Console Writing
@@ -191,7 +191,7 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey_vote  Not Found"
+				ctx.params.DB = []
 			
 				
 				//! Console Writing
@@ -230,7 +230,7 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey_vote  Not Found"
+				ctx.params.DB = []
 			
 				
 				//! Console Writing
@@ -270,7 +270,7 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey_vote  Not Found"
+				ctx.params.DB = []
 			
 				
 				//! Console Writing
@@ -310,7 +310,7 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey_vote  Not Found"
+				ctx.params.DB = []
 			
 				
 				//! Console Writing
@@ -340,7 +340,7 @@ module.exports = {
 			
 
 				//! Console Writing
-				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Find] Data Search [ /api/survey_vote/find_serverToken ] ' + '\u001b[0m');
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Find] Data Search [ /api/survey_vote/find_serverId ] ' + '\u001b[0m');
 			}
 
 			//! No Data
@@ -350,11 +350,11 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey_vote  Not Found"
+				ctx.params.DB = []
 			
 				
 				//! Console Writing
-				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Find] No Data Found [ /api/survey_vote/find_serverToken ] ' + '\u001b[0m');	
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Find] No Data Found [ /api/survey_vote/find_serverId ] ' + '\u001b[0m');	
 
 			}
 
@@ -366,7 +366,7 @@ module.exports = {
 		async find_surveyId(ctx) {
 
 			//! Search
-			const dbFilter = db.filter(u => u.surveyId == ctx.params.surveyId);
+			const dbFilter = db.filter(u => u.surveyId == ctx.params.id);
 
 			//! If Data Is Available
 			if (dbFilter.length > 0) {   	   
@@ -389,7 +389,7 @@ module.exports = {
 			
 
 				//! Console Writing
-				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Find] Data Search [ /api/survey_vote/find_serverToken ] ' + '\u001b[0m');
+				console.log('\u001b[' + 32 + 'm' + '[survey_vote] [Find] Data Search [ /api/survey_vote/find_surveyId ] ' + '\u001b[0m');
 			}
 
 			//! No Data
@@ -399,16 +399,16 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 0
-				ctx.params.DB = "survey_vote  Not Found"
+				ctx.params.DB = []
 			
 				
 				//! Console Writing
-				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Find] No Data Found [ /api/survey_vote/find_serverToken ] ' + '\u001b[0m');	
+				console.log('\u001b[' + 31 + 'm' + '[survey_vote] [Find] No Data Found [ /api/survey_vote/find_surveyId ] ' + '\u001b[0m');	
 
 			}
 
             //! Return
-			delete ctx.params.surveyId
+			delete ctx.params.id
 
 			return ctx.params
 		},
