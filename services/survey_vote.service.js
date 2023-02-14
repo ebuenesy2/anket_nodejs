@@ -5,6 +5,7 @@ const sign = require('jwt-encode'); //! Token
 const jwt_decode = require('jwt-decode'); //! Token
 const db = require('../public/DB/survey_vote.json'); //! Json
 
+const db_survey = require('../public/DB/survey.json'); //! Json -> survey
 const db_user = require('../public/DB/user.json'); //! Json -> user
 
 
@@ -374,9 +375,14 @@ module.exports = {
 				
 				for (let index = 0; index < dbFilter.length; index++) {
 					const element_voterToken = dbFilter[index]["voterToken"];
+					const element_surveyId = dbFilter[index]["surveyId"];
+					const element_surveyAnswersId = dbFilter[index]["surveyAnswersId"];
 
 					var dbFind_user = db_user.find(u => u.token == element_voterToken);
 					dbFilter[index]["voterInfo"] = dbFind_user;
+
+					var dbFind_survey = db_survey.find(u => u.id == element_surveyId);
+					dbFilter[index]["surveyAnswersTitle"] = dbFind_survey.answers.find(u => u.id === element_surveyAnswersId)?.title;
 
 				}
                 
@@ -441,6 +447,7 @@ module.exports = {
 					surveyToken: ctx.params.surveyToken || null,
 					surveyId: ctx.params.surveyId || null,
 					surveyAnswersId: ctx.params.surveyAnswersId || null,
+					surveyAnswersTitle:null,
 					token:jwt,				
 					created_at: dayjs().format(),
 					created_byToken: ctx.params.created_byToken || null,
