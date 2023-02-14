@@ -375,8 +375,8 @@ module.exports = {
 				for (let index = 0; index < dbFilter.length; index++) {
 					const element_voterToken = dbFilter[index]["voterToken"];
 
-					const dbFind_user = db_user.find(u => u.token == element_voterToken);
-					db[index]["voterInfo"] = dbFind_user;
+					var dbFind_user = db_user.find(u => u.token == element_voterToken);
+					dbFilter[index]["voterInfo"] = dbFind_user;
 
 				}
                 
