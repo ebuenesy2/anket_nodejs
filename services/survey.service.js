@@ -49,7 +49,7 @@ module.exports = {
                 
 			    //! Regulation
 				for (let index = 0; index < db.length; index++) {
-					const elementToken = db_vote[index]["token"];
+					const elementToken = db[index]["token"];
 
 					//! Search
 		        	const dbFilter = db_vote.filter(u => u.token == elementToken);
@@ -65,6 +65,7 @@ module.exports = {
 				ctx.params.table = "survey.json"
 				ctx.params.status = 1
 				ctx.params.size=db.length
+				ctx.params.voteCount = db_vote.length
 				ctx.params.DB = db?.sort((a, b) => (a.id > b.id ? -1 : 1))		
 
 				//! Console Writing
