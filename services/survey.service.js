@@ -49,10 +49,10 @@ module.exports = {
                 
 			    //! Regulation
 				for (let index = 0; index < db.length; index++) {
-					const elementToken = db[index]["token"];
+					const elementId = db[index]["id"];
 
 					//! Search
-		        	const dbFilter = db_vote.filter(u => u.token == elementToken);
+		        	const dbFilter = db_vote.filter(u => u.surveyId == elementId);
 					
 					//! Update
 					db[index]["voteCount"] = dbFilter.length

@@ -5,7 +5,10 @@
 		"serverToken": "yildirimdev",
 
 		"voterToken": "token3",
-		"surveyToken": "token1",
+		"voterId": 3,
+		"voterInfo": [],
+		"surveyToken": "token2",
+		"surveyId": 2,
 		"surveyAnswersId": 1,
 
 		"token": "token1",
@@ -25,7 +28,10 @@
 		"serverToken": "yildirimdev",
 
 		"voterToken": "token2",
+		"voterId": 2,
+		"voterInfo": [],
 		"surveyToken": "token1",
+		"surveyId": 1,
 		"surveyAnswersId": 1,
 
 		"token": "token2",
@@ -45,7 +51,10 @@
 		"serverToken": "yildirimdev",
 
 		"voterToken": "token2",
+		"voterId": 2,
+		"voterInfo": [],
 		"surveyToken": "token1",
+		"surveyId": 1,
 		"surveyAnswersId": 1,
 
 		"token": "token2",

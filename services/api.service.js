@@ -333,6 +333,7 @@ module.exports = {
 
 			fastify.post('/api/survey_vote/find_serverToken', async (req, res) => this.broker.call("survey_vote.find_serverToken", { ...req.body })) //! Search - FromServerToken	
 			fastify.post('/api/survey_vote/find_serverId', async (req, res) => this.broker.call("survey_vote.find_serverId", { ...req.body })) //! Search - FromServerId
+			fastify.post('/api/survey_vote/find_surveyId', async (req, res) => this.broker.call("survey_vote.find_surveyId", { ...req.body })) //! Search - FromSurveyId
 
 			fastify.post('/api/survey_vote/add', async (req, res) => this.broker.call("survey_vote.add", { ...req.body })) //! CREATE		
 			fastify.post('/api/survey_vote/update', async (req, res) => this.broker.call("survey_vote.update", { ...req.body })) //! UPDATE
