@@ -12,8 +12,3 @@ npm run dev
 yarn start
 ```
 
-## Çalıştırma - Ngrok
-
-```
-ngrok http 3002
-```
