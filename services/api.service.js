@@ -55,6 +55,10 @@ fastify.register(fastifyStatic, {
 })
 /************* Public File END *********** */
 
+//! Json
+const db_user = require('../public/DB/user.json'); //! Json -> user
+const db_survey = require('../public/DB/survey.json'); //! Json -> survey
+const db_survey_vote = require('../public/DB/survey_vote.json'); //! Json -> survey vote
 
 
 module.exports = {
@@ -227,6 +231,22 @@ module.exports = {
 			}) //! Token
 
 			//! -------------------------   MD5 End	-----------------------------
+
+
+			//! -------------------------   Dashboard	-----------------------------
+
+			fastify.get('/dashboard', function (req, res) {
+
+				
+				res.send({
+					"user":db_user,
+					"survey":db_survey,
+					"survey_vote":db_survey_vote
+				})
+
+			}) //! Token
+
+			//! -------------------------   Dashboard End	-----------------------------
 
 
 		
