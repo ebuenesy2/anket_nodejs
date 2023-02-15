@@ -386,6 +386,7 @@ module.exports = {
 
 				}
 
+				let answersCount = db_survey.find(u => u.id == ctx.params.id).voteCount;
 				let answers_array = db_survey.find(u => u.id == ctx.params.id).answers;
 				for (let index = 0; index < answers_array.length; index++) {
 					const elementId = answers_array[index].id;
@@ -399,6 +400,7 @@ module.exports = {
 				ctx.params.title = "survey_vote.service -> Data Search"
 				ctx.params.table = "survey_vote.json"
 				ctx.params.status = 1
+				ctx.params.answersCount = answersCount
 				ctx.params.answers = answers_array
 				ctx.params.size=dbFilter.length
 				ctx.params.DB = dbFilter?.sort((a, b) => (a.id > b.id ? -1 : 1))
