@@ -145,8 +145,9 @@ module.exports = {
 			const dbFind = db.find(u => u.id == ctx.params.id);
 
 			//! If Data Is Available
-			if (dbFind) {	               
-                
+			if (dbFind) {	
+				
+
 				//! Return Api   
 				ctx.params.title = "survey.service -> Data Search"
 				ctx.params.table = "survey.json"
