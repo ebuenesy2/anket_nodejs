@@ -146,6 +146,15 @@ module.exports = {
 
 			//! If Data Is Available
 			if (dbFind) {	
+
+				let answers = dbFind.answers
+				for (let index = 0; index < answers.length; index++) {
+					const elementId = answers[index].id;
+					const dbFilter_vote = db_vote.filter(u => u.surveyId == ctx.params.id && u.surveyAnswersId == elementId).length;
+					
+					answers[index]["count"] = dbFilter_vote
+				
+				}
 				
 
 				//! Return Api   
