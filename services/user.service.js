@@ -1752,19 +1752,15 @@ module.exports = {
 				if (dbFind) {
 
 					
-					let site_url = process.env.SiteUrl + "/reset-password?confirmation_code=";
 					
 					var messageHtml = '';
 					messageHtml += '<div style="display: flex;">';
             
 					messageHtml += '<div style="font-family: Tahoma;position: relative; border: 1px solid #e6eaee; border-radius: 5px; background-color: #eff3f6; width: 100%; margin-left: auto; margin-right: auto; padding: 25px; font-size: small;">';
 					messageHtml += '<div style="width: 100%;" >';
-					messageHtml += '<img src="'+ process.env.Default_Site_Logo+'" alt="" srcset="">';
 					messageHtml += '</div>';
 					messageHtml += '<h2>Merhaba '+dbFind.name+" "+dbFind.surname+'</h2> ';
-					messageHtml += '<p>Sifrenizi Newleme talebi aldık.</p>';
-					messageHtml += '<p>Sifrenizi Newlemek için</p>';
-					messageHtml += '<a href="' + site_url + dbFind.token + '">Lütfen Tıklayınız</a>';
+					messageHtml += '<p>Sifrenizi Yenileme talebi aldık.</p>';
 					messageHtml += '</div>';
 
 					messageHtml += '</div>';
