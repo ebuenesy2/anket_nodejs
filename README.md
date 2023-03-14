@@ -1,4 +1,4 @@
-# AnketProjectsi
+# Anket Projesi
 
 ## Çalıştırma
 
